@@ -114,64 +114,64 @@ class ProductManager {
 const products = new ProductManager("./products.json");
 //primera llamada = arreglo vacio
 
-const testing = async () => {
-  await products.addProduct(
-    "titulo1",
-    "description1",
-    1000,
-    "thumbnail1",
-    "abc123",
-    5
-  );
-  await products.addProduct(
-    "titulo2",
-    "description2",
-    1000,
-    "thumbnail2",
-    "abc125",
-    5
-  );
-  await products.addProduct(
-    "titulo3",
-    "description3",
-    1000,
-    "thumbnail3",
-    "abc126",
-    5
-  );
+// const testing = async () => {
+//   await products.addProduct(
+//     "titulo1",
+//     "description1",
+//     1000,
+//     "thumbnail1",
+//     "abc123",
+//     5
+//   );
+//   await products.addProduct(
+//     "titulo2",
+//     "description2",
+//     1000,
+//     "thumbnail2",
+//     "abc125",
+//     5
+//   );
+//   await products.addProduct(
+//     "titulo3",
+//     "description3",
+//     1000,
+//     "thumbnail3",
+//     "abc126",
+//     5
+//   );
   // //segunda llamada = arreglo con producto
-  const getData = await products.getProduct();
+  // const getData = await products.getProduct();
   // console.log(getData);
-  console.log('Busca producto 2')
-  const getDataById = await products.getProductById(2);
-  console.log(getDataById);
-  console.log("---------------------");
-  console.log('Busca producto que no existe')
-  const getDataById3 = await products.getProductById(3);
-  console.log(getDataById3);
+//   console.log('Busca producto 2')
+//   const getDataById = await products.getProductById(2);
+//   console.log(getDataById);
+//   console.log("---------------------");
+//   console.log('Busca producto que no existe')
+//   const getDataById3 = await products.getProductById(3);
+//   console.log(getDataById3);
   
   
-  console.log("---------------------");
+//   console.log("---------------------");
 
 
-  await products.deleteProductById(1);
-  await products.deleteProductById(3)
+//   await products.deleteProductById(1);
+//   await products.deleteProductById(3)
 
-  console.log("---------------------");
+//   console.log("---------------------");
 
-  await products.updateProduct({
-    title: 'titulo45',
-description: 'description3',
-price: 4000,
-image: 'imagen3',
-code: 'abc123',
-stock: 3,
-id: 25
-})
+//   await products.updateProduct({
+//     title: 'titulo45',
+// description: 'description3',
+// price: 4000,
+// image: 'imagen3',
+// code: 'abc123',
+// stock: 3,
+// id: 25
+// })
 
-};
+// };
 
 
-testing();
+// testing();
 
 export { ProductManager }

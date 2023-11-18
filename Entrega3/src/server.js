@@ -1,17 +1,18 @@
 import express from "express";
 import { ProductManager } from "./ProductManagerIntento";
-import fs from "fs/promises"
+
 
 const app = express()
 const PORT = 5000
 
 app.use(express.urlencoded({ extended: true }));
 
+const manager = new ProductManager('/products.json')
+
 app.get("/products", async (req, res) => {
  try {
     // Lee el archivo de productos
-    const data = await fs.readFile("products.json", "utf-8")
-    const products = JSON.parse(data)
+    const products = await manager.getProduct()
     // Obtiene el valor del parámetro 'limit' de la consulta
     const limit = req.query.limit
     // Verifica si se proporcionó el parámetro 'limit'
@@ -36,12 +37,14 @@ app.get("/products", async (req, res) => {
 app.get("/products/:pid", async (req,res) =>{
     try {
         //lee el archivo de productos
-        const data = await fs.readFile("products.json", "utf-8")
-        const products = JSON.parse(data)
+        // const data = await fs.readFile("products.json", "utf-8")
+        // const products = JSON.parse(data)
         //obtiene el id del producto desde req.params
-        const productId = parseInt(req.params.pid, 10)
+        // const productId = parseInt(req.params.pid, 10)
         //busca el producto por su ID
-        const product = products.find((p) => p.id === productId)
+        // const product = products.find((p) => p.id === productId)
+        const {pid} = req.params
+        const product = await manager.getProductById(number(pid))
         if(product) {
             //si se encuentra el producto lo envia como respuesta
             res.json({product})
